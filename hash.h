@@ -17,6 +17,7 @@ NListPtr Insert(const char* name);
 
 int BucketSize(int index);
 
+void Print(NListPtr node);
 void PrintHashTable(void);
 void PrintBucketSize(void);
 void PrintBucketMinMax(void);

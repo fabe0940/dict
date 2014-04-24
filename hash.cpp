@@ -72,6 +72,16 @@ NListPtr Insert(const char* name) {
 	return np;
 }
 
+void Print(NListPtr node) {
+	if(node != NULL) {
+		cout << "Node: \"" << node->name << "\"" << endl;
+	} else {
+		cout << "Node: [none]" << endl;
+	}
+
+	return;
+}
+
 void PrintHashTable() {
 	NListPtr np;
 
@@ -110,8 +120,8 @@ void PrintBucketMinMax(void) {
 	int min;
 	int max;
 
-	min = BucketSize(i);
-	max = BucketSize(i);
+	min = BucketSize(0);
+	max = BucketSize(0);
 
 	for(i = 0; i < HASH_TABLE_SIZE; i++) {
 		tmp = BucketSize(i);

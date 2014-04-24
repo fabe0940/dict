@@ -34,5 +34,8 @@ int main(int argc, char** argv) {
 	PrintBucketSize();
 	PrintBucketMinMax();
 
+	Print(Lookup("cat"));
+	Print(Lookup("asdf"));
+
 	exit(0);
 }
