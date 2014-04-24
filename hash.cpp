@@ -19,7 +19,7 @@ static NListPtr hashTable[HASH_TABLE_SIZE];
 
 static char* Strdup(const char* );
 
-unsigned Hash(char* s) {
+unsigned Hash(const char* s) {
 	unsigned hashVal;
 	
 	for(hashVal = 0; *s != '\0'; s++) {
@@ -29,7 +29,7 @@ unsigned Hash(char* s) {
 	return  hashVal % HASH_TABLE_SIZE;
 }
 
-NListPtr Lookup(char* s) {
+NListPtr Lookup(const char* s) {
 	NListPtr np;
 	
 	for(np = hashTable[Hash(s)]; np != NULL; np = np->next) {
@@ -41,7 +41,7 @@ NListPtr Lookup(char* s) {
 	return NULL;
 }
 
-NListPtr Insert(char* name) {
+NListPtr Insert(const char* name) {
 	unsigned hashVal;
 	NListPtr np;
 	

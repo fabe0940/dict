@@ -1,12 +1,14 @@
-#include <iostream>
-#include <fstream>
 #include <cstdlib>
+#include <fstream>
+#include <iostream>
+#include <string>
 #include "hash.h"
 
 using namespace std;
 
 int main(int argc, char** argv) {
 	ifstream dictionary;
+	string buffer;
 
 	if(argc != 2) {
 		cerr << "invalid arguments" << endl;
@@ -21,7 +23,15 @@ int main(int argc, char** argv) {
 		exit(0);
 	}
 
+	while(!dictionary.eof()) {
+		dictionary >> buffer;
+		(void) Insert(buffer.c_str());
+		
+	}
+
 	dictionary.close();
+
+	PrintHashTable();
 
 	exit(0);
 }

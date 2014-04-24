@@ -8,9 +8,9 @@ struct nList {
 typedef struct nList NList;
 typedef struct nList *NListPtr;
 
-unsigned Hash(char* s);
-NListPtr Lookup(char* s);
-NListPtr Insert(char* name);
+unsigned Hash(const char* s);
+NListPtr Lookup(const char* s);
+NListPtr Insert(const char* name);
 
 void PrintHashTable();
 
