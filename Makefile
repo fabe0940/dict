@@ -1,7 +1,7 @@
 CC = g++
 CFLAGS = $(WARNINGS) $(DEBUG) $(DEFINE)
 DEBUG = -g
-#DEFINE = -DDEBUG
+DEFINE = -DHASH_TABLE_SIZE=$(SIZE)
 WARNINGS = -ansi -pedantic -Wall -Wextra -D__USE_FIXED_PROTOTYPES__
 OBJ = main.o hash.o
 #LIBS = -lncurses

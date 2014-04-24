@@ -1,8 +1,6 @@
 #ifndef _HASH_H_
 #define _HASH_H_
 
-const int HASH_TABLE_SIZE = 101;
-
 struct nList {
    char* name;
    struct nList *next;
