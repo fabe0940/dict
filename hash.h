@@ -2,16 +2,15 @@
 #define _HASH_H_
 
 struct nList {
-   char *name;
-   char *defn;
+   char* name;
    struct nList *next;
 };
 typedef struct nList NList;
 typedef struct nList *NListPtr;
 
-unsigned Hash(char *s);
-NListPtr Lookup(char *s);
-NListPtr Insert(char *name, char *defn);
+unsigned Hash(char* s);
+NListPtr Lookup(char* s);
+NListPtr Insert(char* name);
 
 void PrintHashTable();
 
