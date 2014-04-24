@@ -31,7 +31,8 @@ int main(int argc, char** argv) {
 
 	dictionary.close();
 
-	PrintHashTable();
+	PrintBucketSize();
+	PrintBucketMinMax();
 
 	exit(0);
 }

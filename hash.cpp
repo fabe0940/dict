@@ -14,7 +14,6 @@ using namespace std;
 
 #include "hash.h"
 
-const int HASH_TABLE_SIZE = 101;
 static NListPtr hashTable[HASH_TABLE_SIZE];
 
 static char* Strdup(const char* );
@@ -27,6 +26,21 @@ unsigned Hash(const char* s) {
 	}
 		
 	return  hashVal % HASH_TABLE_SIZE;
+}
+
+int BucketSize(int index) {
+	int size;
+	NListPtr tmp;
+
+	tmp = hashTable[index];
+
+	size = 0;
+	while(tmp != NULL) {
+		size++;
+		tmp = tmp->next;
+	}
+
+	return size;
 }
 
 NListPtr Lookup(const char* s) {
@@ -72,6 +86,43 @@ void PrintHashTable() {
 			 np = np->next;
 		}
 	}
+
+	return;
+}
+
+void PrintBucketSize(void) {
+	int i;
+
+	cout << "Hash table bucket sizes:" << endl;
+	cout << "------------------------" << endl;
+
+	for(i = 0; i < HASH_TABLE_SIZE; i++) {
+		cout << setw(3) << i << ": ";
+		cout << BucketSize(i) << endl;
+	}
+
+	return;
+}
+
+void PrintBucketMinMax(void) {
+	int i;
+	int tmp;
+	int min;
+	int max;
+
+	min = BucketSize(i);
+	max = BucketSize(i);
+
+	for(i = 0; i < HASH_TABLE_SIZE; i++) {
+		tmp = BucketSize(i);
+		min = tmp < min ? tmp : min;
+		max = tmp > max ? tmp : max;
+	}
+
+	cout << "Minimum bucket size: " << setw(4) << min << endl;
+	cout << "Maximum bucket size: " << setw(4) << max << endl;
+
+	return;
 }
 
 static char* Strdup(const char* s) {
